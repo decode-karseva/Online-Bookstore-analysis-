@@ -1,17 +1,3 @@
-
-
-
-# Online Bookstore Analysis
-
-<div align="center">
-  <img src="https://placehold.co/1200x600/4F46E5/FFFFFF/png?text=Bookstore+Analytics+Dashboard&font=roboto" alt="Professional analytics dashboard showing book sales trends with line charts, bar graphs showing top selling genres, and a data table of recent transactions with book covers" width="100%"/>
-  
-  <h2>Database-Driven Book Sales Analysis</h2>
-</div>
-
-## Overview
-This project analyzes online book sales using a MySQL database. It includes...
-[Rest of your README content]
 # Online Bookstore Analysis 📚
 
 <div align="center">
