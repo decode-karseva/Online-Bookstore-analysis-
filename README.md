@@ -45,36 +45,6 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-## Database Schema
-```mermaid
-erDiagram
-    BOOKS ||--o{ ORDERS : "ordered"
-    CUSTOMERS ||--o{ ORDERS : "places"
-    BOOKS {
-        int Book_ID PK
-        varchar Title
-        varchar Author
-        varchar Genre
-        int Published_Year
-        decimal Price
-        int Stock
-    }
-    CUSTOMERS {
-        int Customer_ID PK
-        varchar Name
-        varchar Email
-        varchar Phone
-        varchar City
-        varchar Country
-    }
-    ORDERS {
-        int Order_ID PK
-        int Customer_ID FK
-        int Book_ID FK
-        date Order_Date
-        int Quantity
-        decimal Total_Amount
-    }
 # Online Bookstore Analysis
 
 ## Overview
