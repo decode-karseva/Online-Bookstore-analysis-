@@ -1,44 +1,46 @@
-# Online Bookstore Analysis 📚
-
-<div align="center">
-  <img src="https://placehold.co/1200x600/4F46E5/FFFFFF/png?text=Online+Bookstore+Sales+Analysis" alt="Dashboard showing online bookstore sales analytics with charts and graphs" width="800"/>
-  <p><em>Visualization of online book sales data analysis</em></p>
-</div>
+# Online Bookstore Analysis
 
 ## Overview
-This project analyzes online book sales using a MySQL database. It includes:
-- Database schema for book inventory system
-- Sample SQL queries for business intelligence
-- Sales performance metrics
-- Customer purchasing patterns
+This project involves a comprehensive analysis of an online bookstore's sales data using SQL. The goal is to extract valuable insights and answer various business questions based on the dataset. The following README provides a detailed account of the project's objectives, business problems, solutions, findings, and conclusions.
 
-## Database Schema
-```mermaid
-erDiagram
-    BOOKS ||--o{ ORDERS : "ordered"
-    CUSTOMERS ||--o{ ORDERS : "places"
-    BOOKS {
-        int Book_ID PK
-        varchar Title
-        varchar Author
-        varchar Genre
-        int Published_Year
-        decimal Price
-        int Stock
-    }
-    CUSTOMERS {
-        int Customer_ID PK
-        varchar Name
-        varchar Email
-        varchar Phone
-        varchar City
-        varchar Country
-    }
-    ORDERS {
-        int Order_ID PK
-        int Customer_ID FK
-        int Book_ID FK
-        date Order_Date
-        int Quantity
-        decimal Total_Amount
-    }
+## Objectives
+- Analyze the distribution of book genres.
+- Identify the most common authors and their works.
+- List and analyze books based on publication years, prices, and stock levels.
+- Explore and categorize books based on specific criteria and keywords.
+
+## Dataset
+The data for this project is sourced from a fictional online bookstore dataset.
+
+## Schema
+```sql
+DROP TABLE IF EXISTS Books;
+CREATE TABLE Books (
+    Book_ID SERIAL PRIMARY KEY,
+    Title VARCHAR(100),
+    Author VARCHAR(100),
+    Genre VARCHAR(50),
+    Published_Year INT,
+    Price NUMERIC(10, 2),
+    Stock INT
+);
+
+DROP TABLE IF EXISTS Customers;
+CREATE TABLE Customers (
+    Customer_ID SERIAL PRIMARY KEY,
+    Name VARCHAR(100),
+    Email VARCHAR(100),
+    Phone VARCHAR(15),
+    City VARCHAR(50),
+    Country VARCHAR(150)
+);
+
+DROP TABLE IF EXISTS Orders;
+CREATE TABLE Orders (
+    Order_ID SERIAL PRIMARY KEY,
+    Customer_ID INT REFERENCES Customers(Customer_ID),
+    Book_ID INT REFERENCES Books(Book_ID),
+    Order_Date DATE,
+    Quantity INT,
+    Total_Amount NUMERIC(10, 2)
+);
