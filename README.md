@@ -45,3 +45,38 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
+
+
+
+
+erDiagram
+    Customers ||--o{ Orders : places
+    Books ||--o{ Orders : contains
+
+    Customers {
+        int Customer_ID PK
+        varchar Name
+        varchar Email
+        varchar Phone
+        varchar City
+        varchar Country
+    }
+
+    Books {
+        int Book_ID PK
+        varchar Title
+        varchar Author
+        varchar Genre
+        int Published_Year
+        numeric Price
+        int Stock
+    }
+
+    Orders {
+        int Order_ID PK
+        int Customer_ID FK
+        int Book_ID FK
+        date Order_Date
+        int Quantity
+        numeric Total_Amount
+    }
