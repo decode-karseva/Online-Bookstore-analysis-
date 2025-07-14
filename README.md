@@ -1,3 +1,11 @@
+<<<<<<< SEARCH
+                <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+=======
+                <a href="https://github.com/yourusername/OnlineBookstore" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+>>>>>>> REPLACE
+
 # Online Bookstore Analysis 📚
 
 <div align="center">
