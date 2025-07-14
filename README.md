@@ -45,24 +45,33 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-# Online Bookstore Analysis
-
-## Overview
-This project analyzes online book sales using a MySQL database. It includes the creation of a database schema, tables for books, customers, and orders, and various SQL queries to extract insights from the data.
-
 ## Database Schema
-The database consists of the following tables:
-- **Books**: Contains information about books available for sale.
-- **Customers**: Stores customer details.
-- **Orders**: Records customer orders.
-
-## SQL Scripts
-- **schema.sql**: Contains the SQL commands to create the database and tables.
-- **queries.sql**: Contains various SQL queries to analyze the data.
-
-## Getting Started
-To set up the database locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/OnlineBookstore-Analysis.git
+```mermaid
+erDiagram
+    BOOKS ||--o{ ORDERS : "ordered"
+    CUSTOMERS ||--o{ ORDERS : "places"
+    BOOKS {
+        int Book_ID PK
+        varchar Title
+        varchar Author
+        varchar Genre
+        int Published_Year
+        decimal Price
+        int Stock
+    }
+    CUSTOMERS {
+        int Customer_ID PK
+        varchar Name
+        varchar Email
+        varchar Phone
+        varchar City
+        varchar Country
+    }
+    ORDERS {
+        int Order_ID PK
+        int Customer_ID FK
+        int Book_ID FK
+        date Order_Date
+        int Quantity
+        decimal Total_Amount
+    }
