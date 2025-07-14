@@ -1,35 +1,42 @@
-CREATE DATABASE OnlineBookstore;
+# Online Bookstore Data Analysis Project
 
-USE OnlineBookstore;
+![Project Banner](https://placehold.co/1200x400?text=Online+Bookstore+Data+Analysis+%0AER+Diagram+and+SQL+Queries&font=roboto)
 
-CREATE TABLE Books (
-    Book_ID SERIAL PRIMARY KEY,
-    Title VARCHAR(100),
-    Author VARCHAR(100),
-    Genre VARCHAR(50),
-    Published_Year INT,
-    Price NUMERIC(10, 2),
-    Stock INT
-);
+## 📚 Project Overview
+This repository contains a comprehensive data analysis project for an Online Bookstore database system. It demonstrates my ability to design database structures, create ER diagrams, write complex SQL queries, and derive business insights from data.
 
-CREATE TABLE Customers (
-    Customer_ID SERIAL PRIMARY KEY,
-    Name VARCHAR(100),
-    Email VARCHAR(100),
-    Phone VARCHAR(15),
-    City VARCHAR(50),
-    Country VARCHAR(150)
-);
+## 🛠 Database Schema
 
-CREATE TABLE Orders (
-    Order_ID SERIAL PRIMARY KEY,
-    Customer_ID INT REFERENCES Customers(Customer_ID),
-    Book_ID INT REFERENCES Books(Book_ID),
-    Order_Date DATE,
-    Quantity INT,
-    Total_Amount NUMERIC(10, 2)
-);
-
+### Entity Relationship Diagram
+```mermaid
+erDiagram
+    CUSTOMERS ||--o{ ORDERS : places
+    BOOKS ||--o{ ORDERS : contains
+    CUSTOMERS {
+        int Customer_ID PK
+        varchar(100) Name
+        varchar(100) Email
+        varchar(15) Phone
+        varchar(50) City
+        varchar(150) Country
+    }
+    BOOKS {
+        int Book_ID PK
+        varchar(100) Title
+        varchar(100) Author
+        varchar(50) Genre
+        int Published_Year
+        numeric(10,2) Price
+        int Stock
+    }
+    ORDERS {
+        int Order_ID PK
+        int Customer_ID FK
+        int Book_ID FK
+        date Order_Date
+        int Quantity
+        numeric(10,2) Total_Amount
+    }
 # Online Bookstore Analysis
 
 ## Overview
